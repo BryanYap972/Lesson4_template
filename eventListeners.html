@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listeners</title>
+</head>
+<body>
+    <!-- Button click change color -->
+    <div id="header">
+        <h3 >Test Button Click</h3>
+        <button id="myBtn">Click Me</button>
+    </div>
+
+    <script>
+        document.getElementById("myBtn").addEventListener("click", changeColor);
+
+        function changeColor() {
+            document.getElementById("header").style.background = "aqua";
+        }
+    </script>
+
+    <style>
+        #header {
+            background:antiquewhite;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+    </style>
+
+    <!-- Form submit popup -->
+    <div id="formContainer">
+        <h3 >Test Form Submit</h3>
+        <form name="myForm" onsubmit="return validateForm()">
+            Name: <input type="text" name="fname">
+            Number: <input type="number" name="fnumber"><br />
+            <input id="submitBtn" type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        function validateForm(Event) {
+            let name = document.forms["myForm"]["fname"].value;
+            let num = document.forms["myForm"]["fnumber"].value;
+            if (name == "" || num <= 0) {
+                alert("All Fields are mandatory");
+                return false;
+            } else {
+                alert("Name is " + document.forms["myForm"]["fname"].value + "\n"
+                + "Number is: " + document.forms["myForm"]["fname"].value);
+            }
+        }
+    </script>
+
+    <style>
+        #header {
+            background:antiquewhite;
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+        }
+
+        #formContainer {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #submitBtn {
+            margin-top: 10px;
+        }
+    </style>
+</body>
+
+
+</html>
