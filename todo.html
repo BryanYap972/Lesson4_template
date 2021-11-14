@@ -6,12 +6,98 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>To-Do List</title>
     <style>
-      
+      .todo {
+        color: black;
+      }
+
+      .done-task {
+        color: lightgrey
+      }
     </style>
     
   </head>
   <h1>To-Do List</h1>
+  <input type="text" id="inputField">
+  <button id="addButton">Add Task</button>
+  <div>
+    <h3>
+      Task List
+    </h3>
+    <ul id="listWrapper"></ul>
+  </div>
   </body>
   <script>
+    let addButton = document.getElementById("addButton");
+    let listWrapper = document.getElementById("listWrapper");
+    let inputField = document.getElementById("inputField");
+
+    function deleteTask(e) {
+      // e.target refers to the button
+      // parentNode of the button will be the li element itself
+      listWrapper.removeChild(e.target.parentNode);
+    }
+
+    function markTaskDone(e) {
+      // e.target refers to the button
+      // parentNode of the button will be the li element itself
+      let doneNode = e.target.parentNode;
+      doneNode.classList.remove('todo');
+      doneNode.classList.add('done-task')
+    }
+
+    function addTask() {
+      // Asks for the name of the task
+      let taskName = inputField.value;
+
+      // Creates the entry in the list
+      let newTask = document.createElement("li");
+
+      // Adds a todo class to the task
+      newTask.className = "todo";
+
+      // Sets the new task name to the input value
+      newTask.innerHTML = taskName;
+
+      //Implement delete button
+      let deleteButton = document.createElement("button");
+
+      deleteButton.className = "delete";
+      deleteButton.style = "margin-left: 10%;";
+
+      deleteButton.innerHTML = "Delete";
+
+      newTask.appendChild(deleteButton);
+
+      deleteButton.addEventListener("click", deleteTask);
+
+      //Implement done button
+
+      let doneButton = document.createElement("button");
+
+      doneButton.className = "done";
+
+      doneButton.style = "margin-left: 10%;";
+
+      doneButton.innerHTML = "Done";
+
+      newTask.appendChild(doneButton);
+
+
+      doneButton.addEventListener("click", markTaskDone);
+
+
+      //Appends li to ul
+      listWrapper.appendChild(newTask);
+    }
+
+    addButton.addEventListener("click", addTask);
+
+    
+    
+
+    
+
+    
+
   </script>
 </html>

@@ -5,17 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Add Delete Demo</title>
-    <style>
-      .container {
-        font-family: Arial, Helvetica, sans-serif;
-      }
-    </style>
+    <style></style>
   </head>
   <body>
     <div class="container">
       <h1>Add a paragraph below me!</h1>
     </div>
 
-    <script></script>
+    <script>
+      // Finds the elements with the class name "container"
+      let parent = document.querySelector(".container");
+
+      // Creates a new paragraph element
+      let newElement = document.createElement("p");
+
+      // Sets the content of the new element to contain 'Paragraph'
+      newElement.innerHTML = "Paragraph";
+
+      // Sets the id of the new element to 'new paragraph'
+      newElement.id = "new paragraph";
+
+      // Adds the new element to the container found in line 17
+      parent.appendChild(newElement);
+    </script>
   </body>
 </html>

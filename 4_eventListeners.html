@@ -24,13 +24,31 @@
     }
   </style>
   <body>
-    <!-- Form submit popup -->
 
     <h3>Test Form Submit</h3>
     Name: <input type="text" id="name-field" /> <br /><br />
     Number: <input type="number" id="number-field" /><br />
-    <input id="submitBtn" type="submit" value="Submit" />
+    <button id="submitBtn">submit</button>
 
-    <script></script>
+    <script>
+      let submitBtn = document.querySelector("#submitBtn");
+
+      // Allows submitBtn to execute alertPopup once clicked
+      submitBtn.addEventListener("click", alertPopup);
+
+      function alertPopup() {
+
+        // Uncomment this to test alert
+        // alert("hello world");
+
+        // Uncomment this to test confirm
+        // let value = confirm("Are you sure?");
+        // console.log(value);
+
+        // Uncomment this to test prompt!
+        // let name = prompt("promopt");
+        // console.log(name);
+      }
+    </script>
   </body>
 </html>
